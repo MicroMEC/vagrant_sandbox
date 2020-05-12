@@ -1,0 +1,19 @@
+This project creates a local Vagrant-based µMEC installation that works at
+least with the libvirt provider. In other words, start the server in
+directory "server" with 
+
+    sudo vagrant --provider=libvirt up
+
+The current version works with Arch Linux since that is what I am most
+familiar with. OpenSUSE is planned next.
+
+The directory ./data is mounted to the Vagrant machines. /data/cache has
+cached files, such as Arch Linux packages and k3s+helm installers. The
+script 
+
+    ./setup.sh 
+
+will download what (might) be needed. This will just speed up booting,
+the provisioning script will download what is needed. 
+
+Only the server is ready now.  
