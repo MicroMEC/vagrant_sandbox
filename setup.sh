@@ -1,6 +1,7 @@
 #! /usr/bin/zsh -e
 
 export needed_packages=(rsync containerd runc which)
+export APP_DIR=./data/app
 export CACHE_DIR=./data/cache/umec
 export PKG_CACHE=./data/cache/pacman/pkg
 
@@ -26,7 +27,8 @@ done
 # sudo pacman -Sw rsync containerd runc which--cachedir data/cache/pacman/pkg
 
 
-mkdir -p $CACHE_DIR
+mkdir --parents --verbose $CACHE_DIR
+mkdir --parents --verbose $APP_DIR 
 
 fetch_command() {
 	local command=$1

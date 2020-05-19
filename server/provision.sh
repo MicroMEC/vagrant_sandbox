@@ -61,6 +61,10 @@ kubectl create clusterrolebinding tiller \
   --clusterrole cluster-admin \
   --serviceaccount=kube-system:tiller
 
+# This is from https://stackoverflow.com/questions/45914420/why-tiller-connect-to-localhost-8080-for-kubernetes-api#47201852
+# Otherwise, helm init will try to access port 8080 on localhost which is wrong
+kubectl config view --raw > .kube/config
+
 helm init --skip-refresh --upgrade --service-account tiller
 
 
