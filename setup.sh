@@ -26,6 +26,9 @@ done
 
 # sudo pacman -Sw rsync containerd runc which--cachedir data/cache/pacman/pkg
 
+if [[ -n $CACHE_DIR/namespaces.yml ]]; then
+	curl https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml -o $CACHE_DIR/namespaces.yml
+fi
 
 mkdir --parents --verbose $CACHE_DIR
 mkdir --parents --verbose $APP_DIR 
